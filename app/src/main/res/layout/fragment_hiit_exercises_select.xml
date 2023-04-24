@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.HiitExercisesSelectFragment">
+
+    <TextView
+        android:id="@+id/fragHiitExecSel_exercises_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hiit_activity_message"
+        android:textColor="@color/purple_700"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <ListView
+        android:id="@+id/fragHiitExecSel_exercises_list"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/hiit_list_item"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:id="@+id/fragHiitExecSel_change_difficulty_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/item_circular_border_purple_ripple"
+            android:padding="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/fragHiitExecSel_start_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/fragHiitExecSel_change_difficulty_button"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fragHiitExecSel_start_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/item_circular_border_ripple"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/hiit_activity_start_button"
+                android:textColor="@color/purple_200"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

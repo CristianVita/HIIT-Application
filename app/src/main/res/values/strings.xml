@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">HIIT Application</string>
+    <string name="hiit_session_text">HIIT Session</string>
+    <string name="running_session_text">Running Session</string>
+    <string name="statistics_text">Statistics</string>
+    <string name="hiit_activity_message">Please select your exercises:</string>
+    <string name="hiit_activity_start_button">Start</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragHiitDiffSel_beginner_button">Beginner</string>
+    <string name="fragHiitDiffSel_intermediate_button">Intermediate</string>
+    <string name="fragHiitDiffSel_advanced_button">Advanced</string>
+    <string name="fragHiitExecSel_change_difficulty_button">Change difficulty</string>
 </resources>
