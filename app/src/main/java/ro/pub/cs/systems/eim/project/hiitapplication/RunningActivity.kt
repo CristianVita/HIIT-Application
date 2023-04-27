@@ -19,6 +19,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
+import kotlin.math.roundToInt
 
 
 class RunningActivity : AppCompatActivity(), SensorEventListener, LocationListener {
@@ -83,21 +84,33 @@ class RunningActivity : AppCompatActivity(), SensorEventListener, LocationListen
         steps = 0
         speed = 0f
         lastTime = 0
+        lastLocation = null
     }
 
     private fun startRunningSession() {
         startCountingSteps()
         startLocationUpdates()
-        startTimer()
 
-        startBtnText?.text = "   Stop\nRunning"
-        startBtn?.setOnClickListener {
-            stopRunningSession()
+        ifIsRunningStartTimer()
+    }
+
+    private fun ifIsRunningStartTimer() {
+        if (isRunning) {
+            startTimer()
+
+            startBtnText?.text = "   Stop\nRunning"
+            startBtn?.setOnClickListener {
+                stopRunningSession()
+            }
         }
     }
 
     private fun startTimer() {
         lastTime = getCurrentTime()
+
+        Log.e("RunningActivity", "startTimer() callback method was invoked")
+        Log.e("RunningActivity", "startTimer() callback method was invoked, isRunning = $isRunning")
+
         Thread {
             while (isRunning) {
                 val currentTime = getCurrentTime()
@@ -241,13 +254,26 @@ class RunningActivity : AppCompatActivity(), SensorEventListener, LocationListen
 
         if (p0.hasSpeed()) {
             speedTV?.text = "Current speed: ${p0.speed} m/s"
+        } else {
+            speedTV?.text = "Current speed: 0 m/s"
         }
 
         if (lastLocation == null) {
             lastLocation = p0
+            Log.d("Location", "start location: $lastLocation")
         } else {
+            Log.d("Current location", "current location: $p0")
+            Log.d("Distance", "distance: ${p0.distanceTo(lastLocation!!)}")
             distance += p0.distanceTo(lastLocation!!)
-            distanceTV?.text = "Distance: ${distance} m"
+            lastLocation = p0
+            val distanceTwoDecimals = (distance * 100.0).roundToInt() / 100.0
+
+            if (distanceTwoDecimals > 1000) {
+                distanceTV?.text = "Distance: ${((distanceTwoDecimals / 1000) * 100.0).roundToInt() / 100.0} km"
+            } else {
+                distanceTV?.text = "Distance: $distanceTwoDecimals m"
+            }
+
         }
     }
 }
