@@ -1,14 +1,12 @@
 package ro.pub.cs.systems.eim.project.hiitapplication.adapter
 
-import android.app.Activity
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import ro.pub.cs.systems.eim.project.hiitapplication.R
-import ro.pub.cs.systems.eim.project.hiitapplication.dto.HiitExercise
+import ro.pub.cs.systems.eim.project.hiitapplication.data.dto.HiitExercise
 
 class HiitAdapter(context: Context, private val hiitExercisesArray: ArrayList<HiitExercise>) :
     ArrayAdapter<HiitExercise>(context, R.layout.hiit_list_item, hiitExercisesArray) {

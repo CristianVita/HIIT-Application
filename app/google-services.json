@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "2241188480",
+    "project_id": "hiit-application-6505d",
+    "storage_bucket": "hiit-application-6505d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2241188480:android:5d6d1280c7d4272d420c65",
+        "android_client_info": {
+          "package_name": "ro.pub.cs.systems.eim.project.hiitapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2241188480-gb83alg2rugbgvv2oo8vldor7arq6o9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT8zNQo45kTZN0Qo0JeQuzjFS4ucdNLKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2241188480-gb83alg2rugbgvv2oo8vldor7arq6o9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

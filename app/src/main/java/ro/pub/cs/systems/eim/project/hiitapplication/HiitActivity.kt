@@ -3,25 +3,12 @@ package ro.pub.cs.systems.eim.project.hiitapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import android.view.Gravity
-import android.widget.ListView
-import android.widget.Toast
-import android.widget.Toast.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import ro.pub.cs.systems.eim.project.hiitapplication.adapter.HiitAdapter
-import ro.pub.cs.systems.eim.project.hiitapplication.dto.HiitExercise
+import ro.pub.cs.systems.eim.project.hiitapplication.data.dto.HiitExercise
 import ro.pub.cs.systems.eim.project.hiitapplication.fragment.HiitDifficultySelectFragment
 import ro.pub.cs.systems.eim.project.hiitapplication.fragment.HiitExercisesSelectFragment
 import ro.pub.cs.systems.eim.project.hiitapplication.fragment.HiitStartedExerciseFragment
-import ro.pub.cs.systems.eim.project.hiitapplication.repository.HiitRepository
-import java.net.SocketTimeoutException
 
 class HiitActivity : AppCompatActivity(), HiitDifficultySelectFragment.Listener, HiitExercisesSelectFragment.Listener, HiitStartedExerciseFragment.Listener {
 

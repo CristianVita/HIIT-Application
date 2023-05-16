@@ -7,6 +7,19 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/actMain_welcomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"
+        tools:text="Welcome User" />
+
     <FrameLayout
         android:id="@+id/actMain_hiitSessionBtn"
         android:layout_width="250dp"
@@ -68,5 +81,17 @@
             android:textSize="22sp"
             android:textStyle="bold" />
     </FrameLayout>
+
+    <Button
+        android:id="@+id/actMain_logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actMain_statisticsBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

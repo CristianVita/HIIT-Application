@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ro.pub.cs.systems.eim.project.hiitapplication.R
 import ro.pub.cs.systems.eim.project.hiitapplication.adapter.HiitAdapter
-import ro.pub.cs.systems.eim.project.hiitapplication.dto.HiitExercise
+import ro.pub.cs.systems.eim.project.hiitapplication.data.dto.HiitExercise
 import ro.pub.cs.systems.eim.project.hiitapplication.repository.HiitRepository
 import java.net.SocketTimeoutException
 
@@ -26,7 +26,7 @@ private const val DIFF_KEY = "difficulty"
 class HiitExercisesSelectFragment : Fragment() {
     private var difficulty: String? = null
 
-    private var hiitRepository: HiitRepository = HiitRepository()
+    private lateinit var hiitRepository: HiitRepository
     /* This is the list of exercises that will be displayed in the ListView */
     private var hiitExercises: ArrayList<HiitExercise> = ArrayList()
     /* This is the ListView that will display the exercises */
@@ -109,6 +109,8 @@ class HiitExercisesSelectFragment : Fragment() {
         arguments?.let {
             difficulty = it.getString(DIFF_KEY)
         }
+
+        hiitRepository = HiitRepository(requireContext())
     }
 
     override fun onAttach(context: Context) {

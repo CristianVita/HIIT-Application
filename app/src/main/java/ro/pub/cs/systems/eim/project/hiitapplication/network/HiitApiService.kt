@@ -1,7 +1,7 @@
 package ro.pub.cs.systems.eim.project.hiitapplication.network
 
 import retrofit2.http.GET
-import ro.pub.cs.systems.eim.project.hiitapplication.dto.HiitExercise
+import ro.pub.cs.systems.eim.project.hiitapplication.data.dto.HiitExercise
 
 interface HiitApiService {
     @GET("exercises/beginner")

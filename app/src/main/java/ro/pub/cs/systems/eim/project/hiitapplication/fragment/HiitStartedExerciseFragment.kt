@@ -12,7 +12,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import com.google.gson.Gson
 import ro.pub.cs.systems.eim.project.hiitapplication.R
-import ro.pub.cs.systems.eim.project.hiitapplication.dto.HiitExercise
+import ro.pub.cs.systems.eim.project.hiitapplication.data.dto.HiitExercise
 
 private const val EXERCISES_KEY = "exerciseList"
 
