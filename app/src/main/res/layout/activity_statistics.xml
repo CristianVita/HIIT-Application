@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".StatisticsActivity">
+
+    <FrameLayout
+        android:id="@+id/actStatistics_historyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_circular_border_ripple"
+        android:layout_margin="60dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Workout History"
+            android:textColor="@color/purple_200"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:padding="25dp"/>
+    </FrameLayout>
+
+</LinearLayout>

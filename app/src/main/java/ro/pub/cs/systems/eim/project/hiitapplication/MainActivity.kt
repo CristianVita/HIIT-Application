@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         statisticsBtn?.setOnClickListener {
-            Toast.makeText(this, "Statistics", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, StatisticsActivity::class.java)
+            startActivity(intent)
         }
 
         welcomeTV?.text = "Welcome, ${user.email}"

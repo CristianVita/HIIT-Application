@@ -19,6 +19,15 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.lifecycleScope
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import ro.pub.cs.systems.eim.project.hiitapplication.data.dto.WorkoutSession
+import ro.pub.cs.systems.eim.project.hiitapplication.repository.WorkoutHistoryRepository
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import kotlin.math.roundToInt
 
 
@@ -48,9 +57,16 @@ class RunningActivity : AppCompatActivity(), SensorEventListener, LocationListen
     private var lastTime: Long = 0
     private var lastLocation: Location? = null
 
+    private lateinit var workoutHistoryRepository: WorkoutHistoryRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_running)
+
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser!!
+
+        workoutHistoryRepository = WorkoutHistoryRepository(user.uid)
 
         Log.d("RunningActivity", "onCreate() callback method was invoked")
 
@@ -140,12 +156,28 @@ class RunningActivity : AppCompatActivity(), SensorEventListener, LocationListen
         sensorManager?.unregisterListener(this)
         locationManager?.removeUpdates(this)
 
+        // Save the workout session in the database
+        val workoutSession = WorkoutSession(
+            "Running Session",
+            "${distanceTV?.text.toString()}\n${timeTV?.text.toString()}",
+            getCurrentDate()
+        )
+        lifecycleScope.launch(Dispatchers.IO) {
+            workoutHistoryRepository.addWorkoutSession(workoutSession)
+        }
+
         startBtnText?.text = "   Start\nRunning"
         startBtn?.setOnClickListener {
             startRunningSession()
         }
 
         resetUI()
+    }
+
+    private fun getCurrentDate(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val currentDate = Date()
+        return dateFormat.format(currentDate)
     }
 
     private fun startCountingSteps() {

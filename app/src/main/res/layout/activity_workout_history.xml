@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".WorkoutHistoryActivity">
+
+    <TextView
+        android:id="@+id/actWorkoutHistory_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Workout History"
+        android:textColor="@color/purple_700"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Session"
+            android:textColor="@color/purple_700"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="35dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textColor="@color/purple_700"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="35dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textAlignment="center"
+            android:textColor="@color/purple_700"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="35dp"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/actWorkoutHistory_historyList"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/history_list_item"/>
+
+</LinearLayout>
